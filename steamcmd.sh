@@ -10,27 +10,50 @@ set -o pipefail
 ########################
 #  Configuration Vars  #
 ########################
-
+readonly steam_id=""
+readonly game_name=""
+readonly server_name=""
+readonly server_pass=""
 
 #################
 #  Expert Vars  #
 #################
-readonly steamcmd_url="https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz"
+readonly local_user="steam"
 readonly rocky_deps="tar wget unzip glibc.i686 libstdc++.i686"
+readonly steamcmd_url="https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz"
+readonly steamcmd_working_dir="/home/${local_user}"
+
 
 ###############
 #  Functions  #
 ###############
 
-download_steamcmd() {
-  wget --show-progress --directory-prefix 
+create_user() {
+  if
+  # sudo useradd "${local_user}"
 }
 
 rocky_install_deps() {
-  sudo dnf install "${rocky_deps}"
+  sudo dnf install --assumeyes "${rocky_deps}"
 }
 
-rocky_update() {
-  return 0
+rocky_upgrade() {
+  sudo dnf upgrade --assumeyes
 }
 
+steamcmd_download() {
+  wget --show-progress --directory-prefix "${steamcmd_working_dir}" "${steamcmd_url}"
+}
+
+
+##########
+#  Main  #
+##########
+
+main() {
+  rocky_upgrade
+  create_user
+
+}
+
+# main "$@"
