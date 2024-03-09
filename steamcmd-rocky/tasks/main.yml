@@ -1,0 +1,15 @@
+---
+# tasks file for steamcmd-rocky
+
+- name: Update all packages
+  become: true
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
+
+- name: Set up the steam user
+  ansible.builtin.include_tasks:
+    file: steam-user-setup.yml
+
+
+
