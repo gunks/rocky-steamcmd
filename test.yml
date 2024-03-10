@@ -1,9 +1,0 @@
----
-- name: Testing
-  hosts: valheim_david
-  tasks:
-
-  - name: test
-    
-
-...

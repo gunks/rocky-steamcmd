@@ -1,9 +1,0 @@
----
-all:
-  vars:
-  hosts:
-    valheim_david:
-      ansible_host: 172.42.0.101
-
-
-...
