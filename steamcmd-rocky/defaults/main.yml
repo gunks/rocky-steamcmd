@@ -1,5 +1,0 @@
----
-# defaults file for steamcmd-rocky
-steam_username: steam
-steamcmd_dir: /home/{{steam_username}}/SteamCmd
-steamcmd_url: https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
